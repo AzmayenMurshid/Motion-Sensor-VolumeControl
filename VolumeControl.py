@@ -5,8 +5,11 @@ from ctypes import cast, POINTER
 from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 import numpy as np
+import pyttsx3
 
-
+engine = pyttsx3.init()
+engine.say("Volume changed")
+engine.runAndWait()
 
 def VolumeControl():
     cap = cv2.VideoCapture(0)
@@ -51,9 +54,25 @@ def VolumeControl():
 
             # Hand range 20-220, Volume range -63.5 - 0.0
 
-        cv2.imshow('Image', img)
+        #  Screen size code goes here:
+        
         if cv2.waitKey(1) & 0xff == ord('q'):
             break
 
-
 VolumeControl()
+
+
+"""
+Full Screen Image:
+
+cv2.namedWindow("window", cv2.WND_PROP_FULLSCREEN)
+cv2.setWindowProperty("window", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+cv2.imshow('window', img)
+
+Resize Image:
+
+cv2.namedWindow("window", cv2.WINDOW_GUI_NORMAL)
+cv2.resizeWindow("window", 400, 300)  # -->Change Size if you'd like
+cv2.imshow("window", img)
+"""
+
