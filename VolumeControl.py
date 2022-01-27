@@ -8,7 +8,7 @@ import numpy as np
 import pyttsx3
 
 engine = pyttsx3.init()
-engine.say("Volume Control Activated")
+engine.say("Volume Control activated")
 engine.runAndWait()
 
 def VolumeControl():
